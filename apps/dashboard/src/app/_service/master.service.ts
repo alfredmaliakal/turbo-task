@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { products } from '../_model/task';
+import { task } from '../_model/task';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class MasterService {
 
   constructor(private http:HttpClient) { }
 
-  Loadproducts(){
-    return this.http.get<products[]>("http://localhost:3000/api/tasks");
+  Loadtasks(){
+    return this.http.get<task[]>("http://localhost:3000/api/tasks");
   }
 }

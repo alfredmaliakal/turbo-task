@@ -9,20 +9,20 @@ import { ChipModule } from 'primeng/chip';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 @Component({
-  selector: 'app-product',
+  selector: 'app-task',
   imports: [CommonModule, TableModule,TagModule,ButtonModule],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.scss',
+  templateUrl: './tasks.component.html',
+  styleUrl: './tasks.component.scss',
 })
-export class ProductComponent implements OnInit {
+export class TaskComponent implements OnInit {
   tasklist!: task[];
   constructor(private service: MasterService) {}
 
   ngOnInit(): void {
-    this.loadProducts();
+    this.loadTasks();
   }
 
-  loadProducts() {
+  loadTasks() {
     this.service.Loadtasks().subscribe((item) => {
       console.log(item);
    

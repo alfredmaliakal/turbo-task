@@ -1,10 +1,19 @@
-<app-header />
-<main class="container mx-auto px-4 py-8">
-  <router-outlet></router-outlet>
-</main>
-<app-product/>
-<footer class="bg-neutral text-neutral-content mt-8">
-  <div class="container mx-auto px-4 py-6 text-center">
-    <p>&copy; 2025 Turbo Task Manager. All rights reserved.</p>
-  </div>
-</footer>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Sticky Header -->
+  <app-header class="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow" />
+
+  <!-- Main Content: fills remaining space -->
+  <main class="flex-1  flex flex-col container mx-auto px-4 py-8 w-full">
+    <router-outlet></router-outlet>
+    <app-task />
+  </main>
+
+  <!-- Sticky Footer -->
+  <footer class="sticky bottom-0 z-50 bg-white dark:bg-gray-900 shadow p-4 w-full">
+    <div class="container mx-auto px-4 py-6 text-center">
+      <p>&copy; 2025 Turbo Task Manager. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>

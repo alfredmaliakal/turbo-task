@@ -1,4 +1,4 @@
-export interface products{
+export interface task{
    title: string;
     description: string;
     type: string;

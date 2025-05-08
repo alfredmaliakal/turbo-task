@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ThemeService} from '../../_service/theme.service'
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  constructor(private themeService: ThemeService) {}
+
+toggleTheme() {
+  this.themeService.toggleTheme();
+}
+}
