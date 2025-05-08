@@ -1,0 +1,45 @@
+<!-- <div>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Owner</th>                                       
+        <th>Create Date</th>                                                                                                                                 \                                        
+      </tr>                                   
+    </thead>
+    <tbody>
+        @for (item of productlist; track item) {                                                             
+            <tr>{{item.title}} </tr>
+            <tr>{{item.owner}} </tr>
+            <tr>{{item.sla}} </tr>
+            <tr><span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">{{item.type}}</span> </tr>
+        }
+      
+    </tbody>
+  </table>
+</div> -->
+
+<p-table [value]="productlist" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <tr>
+      <th>Id</th>
+      <th>Task Title</th>
+      <th>SLA</th>
+      <th>Created User</th>
+      <th>Type</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-item>
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.sla }}</td>
+      <td>{{ item.owner }}</td>
+      <td>
+        <p-tag severity="info" value="{{ item.type }}" />
+        <!-- <p-tag value={{ item.type }} /> -->
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

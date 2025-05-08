@@ -1,1 +1,12 @@
+// Use Tailwind's utilities, base, and components using @use
+@use "tailwindcss/base" as *;
+@use "tailwindcss/components" as *;
+@use "tailwindcss/utilities" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 /* You can add global styles to this file, and also import other style files */
