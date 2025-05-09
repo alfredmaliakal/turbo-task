@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './../../../../../libs/data/dto/task/create-task.dto';
 import { UpdateTaskDto } from '../../../../../libs/data/dto/task/update-task.dto';
-import { InjectRepository, TypeOrmModule } from '@nestjs/typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from './entities/task.entity';
 import { Repository } from 'typeorm';
 

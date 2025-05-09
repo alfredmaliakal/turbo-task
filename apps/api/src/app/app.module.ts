@@ -6,6 +6,8 @@ import { ConfigModule} from '@nestjs/config'
 import { Task } from './tasks/entities/task.entity';
 import { TasksModule } from './tasks/tasks.module';
 import path = require("path")
+import { User } from './users/entities/user.entity';
+import { UsersModule } from './users/users.module';
 
 
 @Module({
@@ -13,11 +15,12 @@ import path = require("path")
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: './libs/data/sqlite/demo.db',
-      entities: [Task],
+      database: '../demo.db',
+      entities: [Task,User],
       synchronize: true,
     }),
     TasksModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

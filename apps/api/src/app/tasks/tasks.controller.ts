@@ -14,7 +14,6 @@ export class TasksController {
 
   @Get()
   findAll() {
-    console.log(" getting.. tasks")
     return this.tasksService.findAll();
   }
 

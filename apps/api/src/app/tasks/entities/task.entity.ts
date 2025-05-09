@@ -1,24 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({name: 'tasks'})
+@Entity({ name: 'tasks' })
 export class Task {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  title: string;
 
-    @Column()
-    title: string;
+  @Column()
+  description: string;
 
-    @Column()
-    description: string;
+  @Column()
+  sla: string;
 
-    @Column()
-    sla: string;
+  @Column()
+  owner: string;
 
-    @Column()
-    owner: string;
-
-    @Column()
-    type: string;
-
+  @Column()
+  type: string;
 }
