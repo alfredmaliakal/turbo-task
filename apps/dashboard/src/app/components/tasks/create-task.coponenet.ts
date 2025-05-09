@@ -3,26 +3,23 @@ import { CommonModule } from '@angular/common';
 import { MasterService } from '../../_service/master.service';
 import { task } from '../../_model/task';
 import { TableModule } from 'primeng/table';
-import { BadgeModule } from 'primeng/badge';
-import { OverlayBadgeModule } from 'primeng/overlaybadge';
-import { ChipModule } from 'primeng/chip';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 @Component({
-  selector: 'app-product',
+  selector: 'app-create-task',
   imports: [CommonModule, TableModule,TagModule,ButtonModule],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.scss',
+  templateUrl: './tasks.component.html',
+  styleUrl: './tasks.component.scss',
 })
-export class ProductComponent implements OnInit {
+export class TaskComponent implements OnInit {
   tasklist!: task[];
   constructor(private service: MasterService) {}
 
   ngOnInit(): void {
-    this.loadProducts();
+    this.loadTasks();
   }
 
-  loadProducts() {
+  loadTasks() {
     this.service.Loadtasks().subscribe((item) => {
       console.log(item);
    

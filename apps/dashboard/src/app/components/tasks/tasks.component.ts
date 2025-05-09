@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MasterService } from '../../_service/master.service';
 import { task } from '../../_model/task';
 import { TableModule } from 'primeng/table';
-import { BadgeModule } from 'primeng/badge';
-import { OverlayBadgeModule } from 'primeng/overlaybadge';
-import { ChipModule } from 'primeng/chip';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 @Component({
