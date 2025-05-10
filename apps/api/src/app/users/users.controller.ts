@@ -6,6 +6,7 @@ import { Role } from 'libs/auth/enum/role.enum';
 import {Roles} from '../../../../../libs/auth/decorators/roles.decorator';
 import {RolesGuard} from '../../../../../libs/auth/guards/roles/roles.guard';
 import {JwtAuthGuard} from '../../../../../libs/auth/guards/jwt-auth/jwt-auth.guard'
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
 export class UsersController {
@@ -38,7 +39,7 @@ export class UsersController {
   }
 
   @Roles(Role.ADMIN)
-  @UseGuards(RolesGuard)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);

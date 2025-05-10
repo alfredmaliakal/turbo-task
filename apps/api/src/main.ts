@@ -11,6 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
+ // app.useGlobalInterceptors(new AuditInterceptor(app.get(AuditService)));
   app.enableCors({
     origin: 'http://localhost:4200', // allow Angular app
     //credentials: true,               // if using cookies/auth headers

@@ -48,6 +48,7 @@
     "@nestjs/microservices": "^10.4.17",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
+    "@ngrx/store": "^19.1.0",
     "@nx/angular": "21.0.0",
     "@nx/cypress": "21.0.0",
     "@nx/eslint": "21.0.0",

@@ -29,7 +29,6 @@ export class TasksService {
 
   async update(id: number, updateTaskDto: UpdateTaskDto) {
     await this.taskReposistory.update(id, updateTaskDto);
-
     const updatedTask = await this.taskReposistory.findOne({ where: { id } });
     return updatedTask;
   }

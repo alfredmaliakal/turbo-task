@@ -1,26 +1,48 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import {AuthJwtPayload} from '../../../../../libs/auth/types/jwtPayload';
+import { AuthJwtPayload } from '../../../../../libs/auth/types/jwtPayload';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userService: UsersService, private jwtService:JwtService) {}
+  constructor(
+    private readonly userService: UsersService,
+    private jwtService: JwtService
+  ) {}
 
-  async validateUser(id: number) {
+  async validateUser(id: number, password: string) {
+    console.log('Validating user with ID:', id);
+
     const user = await this.userService.findOne(id);
-    if (!user) throw new UnauthorizedException('User not found!');
-    let isPasswordMatch = false;
-    if (id != 10001) isPasswordMatch = true;
+    if (!user) {
+      throw new UnauthorizedException('User not found!');
+    }
 
-    if (!isPasswordMatch)
+    const isPasswordMatch = await this.checkPassword(id);
+    if (!isPasswordMatch) {
       throw new UnauthorizedException('Invalid credentials');
+    }
+    console.log('User found:', user);
+    return user;
 
-    return { id: user.id };
   }
 
-  login(userId: number){
-    const payload:AuthJwtPayload = {sub:userId}
-    return this.jwtService.sign(payload);
+  private async checkPassword(id:number): Promise<boolean> {
+    // Replace with real password check logic
+    return (id != 10001);
+
+  }
+
+  login(user: any) {
+    const payload: AuthJwtPayload = {
+      sub: user.id,
+      role: user.role,
+      orgType: user.orgType,
+    };
+
+    return {
+      token: this.jwtService.sign(payload),
+      user,
+    };
   }
 }
