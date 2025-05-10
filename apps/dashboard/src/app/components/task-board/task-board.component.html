@@ -1,0 +1,40 @@
+<div cdkDropListGroup class="flex gap-4 w-full">
+  <div class="example-container flex-1">
+    <h2>To do</h2>
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of todo; track item) {
+      <div class="example-box flex items-center justify-between" cdkDrag>
+        <span class="flex-grow">{{ item }}</span>
+        <div class="flex gap-2">
+          <button mat-icon-button color="primary" (click)="editItem(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteItem(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex-1 example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{ item }}</div>
+      }
+    </div>
+  </div>
+</div>

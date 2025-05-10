@@ -9,6 +9,7 @@ import path = require("path")
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { AuditModule } from './audit/audit/audit.module';
 
 
 
@@ -23,7 +24,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     TasksModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    AuditModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -23,7 +23,7 @@ export class TaskComponent implements OnInit {
     this.service.Loadtasks().subscribe((item) => {
       console.log(item);
    
-     this.tasklist = item;
+    // this.tasklist = item;
     });
   }
 }
