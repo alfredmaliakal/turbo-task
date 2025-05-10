@@ -3,13 +3,13 @@
     <h2>To do</h2>
     <div
       cdkDropList
-      [cdkDropListData]="todo"
+      [cdkDropListData]="tasksByStatus[0]"
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
-      @for (item of todo; track item) {
+      @for (item of tasksByStatus[0]; track item) {
       <div class="example-box flex items-center justify-between" cdkDrag>
-        <span class="flex-grow">{{ item }}</span>
+        <span class="flex-grow">{{ item.title }}</span>
         <div class="flex gap-2">
           <button mat-icon-button color="primary" (click)="editItem(item)">
             <mat-icon>edit</mat-icon>
@@ -28,12 +28,12 @@
 
     <div
       cdkDropList
-      [cdkDropListData]="done"
+      [cdkDropListData]="tasksByStatus[1]"
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
-      @for (item of done; track item) {
-      <div class="example-box" cdkDrag>{{ item }}</div>
+      @for (item of tasksByStatus[1]; track item) {
+      <div class="example-box" cdkDrag>{{ item.title }}</div>
       }
     </div>
   </div>
