@@ -1,7 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, SetMetadata, UseGuards, Req } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from '../../../../../libs/data/dto/user/create-user.dto';
 import { UpdateUserDto } from '../../../../../libs/data/dto/user/update-user.dto';
+import { Role } from 'libs/auth/enum/role.enum';
+import {Roles} from '../../../../../libs/auth/decorators/roles.decorator';
+import {RolesGuard} from '../../../../../libs/auth/guards/roles/roles.guard';
+import {JwtAuthGuard} from '../../../../../libs/auth/guards/jwt-auth/jwt-auth.guard'
 
 @Controller('users')
 export class UsersController {
@@ -10,6 +14,12 @@ export class UsersController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Req() req){
+    return this.usersService.findOne(1)
   }
 
   @Get()
@@ -27,6 +37,8 @@ export class UsersController {
     return this.usersService.update(+id, updateUserDto);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(RolesGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);

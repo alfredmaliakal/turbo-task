@@ -8,6 +8,8 @@ import { TasksModule } from './tasks/tasks.module';
 import path = require("path")
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+
 
 
 @Module({
@@ -20,7 +22,8 @@ import { UsersModule } from './users/users.module';
       synchronize: true,
     }),
     TasksModule,
-    UsersModule
+    UsersModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
