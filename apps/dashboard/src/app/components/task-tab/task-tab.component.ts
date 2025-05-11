@@ -46,17 +46,17 @@ export class TaskTabComponent implements OnInit {
   titles: string[] = [];
   groupedTasks: { [type: string]: { [status: number]: CreateTaskDto[] } } = {
     work: {
-    0: [],
-    1: []
-  },
-  personal: {
-    0: [],
-    1: []
-  },
-  home: {
-    0: [],
-    1: []
-  }
+      0: [],
+      1: [],
+    },
+    personal: {
+      0: [],
+      1: [],
+    },
+    home: {
+      0: [],
+      1: [],
+    },
   };
 
   loadTasks() {
@@ -78,7 +78,6 @@ export class TaskTabComponent implements OnInit {
 
         this.groupedTasks[type][status].push(task);
       }
-   
     });
   }
 }

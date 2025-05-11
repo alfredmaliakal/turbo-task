@@ -11,11 +11,10 @@ export class ThemeService {
 
   toggleDarkMode() {
     const element = document.querySelector('html');
-  if (element) {
-    element.classList.toggle('my-app-dark');
+    if (element) {
+      element.classList.toggle('my-app-dark');
+    }
   }
-}
-  
 
   setTheme(theme: 'dark' | 'light'): void {
     document.documentElement.setAttribute('data-theme', theme);

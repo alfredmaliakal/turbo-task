@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { TaskComponent } from './components/tasks/tasks.component';
-import { TaskBoardComponent } from './components/task-board/task-board.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,7 +25,7 @@ import { TaskTabComponent } from './components/task-tab/task-tab.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    TaskTabComponent
+    TaskTabComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',

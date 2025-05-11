@@ -1,11 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, SetMetadata, UseGuards, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  SetMetadata,
+  UseGuards,
+  Req,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from '../../../../../libs/data/dto/user/create-user.dto';
 import { UpdateUserDto } from '../../../../../libs/data/dto/user/update-user.dto';
 import { Role } from 'libs/auth/enum/role.enum';
-import {Roles} from '../../../../../libs/auth/decorators/roles.decorator';
-import {RolesGuard} from '../../../../../libs/auth/guards/roles/roles.guard';
-import {JwtAuthGuard} from '../../../../../libs/auth/guards/jwt-auth/jwt-auth.guard'
+import { Roles } from '../../../../../libs/auth/decorators/roles.decorator';
+import { RolesGuard } from '../../../../../libs/auth/guards/roles/roles.guard';
+import { JwtAuthGuard } from '../../../../../libs/auth/guards/jwt-auth/jwt-auth.guard';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('users')
@@ -19,8 +30,8 @@ export class UsersController {
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  getProfile(@Req() req){
-    return this.usersService.findOne(1)
+  getProfile(@Req() req) {
+    return this.usersService.findOne(1);
   }
 
   @Get()

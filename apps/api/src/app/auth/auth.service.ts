@@ -24,15 +24,14 @@ export class AuthService {
     }
     console.log('User found:', user);
     return user;
-
   }
 
-  private async checkPassword(id:number): Promise<boolean> {
-    // Replace with real password check logic
-    return (id != 10001);
-
+  private async checkPassword(id: number): Promise<boolean> {
+    // Replace with real password check logic, testing for password logic, no authentication for user 10001
+    // For example, you might want to hash the password and compare it with the stored hash
+    return id != 10001;
   }
-
+  // user object is passed to the login method
   login(user: any) {
     const payload: AuthJwtPayload = {
       sub: user.id,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import {
@@ -26,12 +26,11 @@ import { CreateTaskDto } from 'libs/data/dto/task/create-task.dto';
 })
 export class TaskBoardComponent {
   @Input() tasksByStatus: { [status: number]: CreateTaskDto[] } = {
-  0: [],
-  1: []
-};
+    0: [],
+    1: [],
+  };
 
   drop(event: CdkDragDrop<CreateTaskDto[]>) {
-
     console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -50,14 +49,13 @@ export class TaskBoardComponent {
   }
 
   deleteItem(item: any) {
-    //this.todo = this.todo.filter(i => i !== item);
     // Add API call here if needed
   }
 
   editItem(item: any) {
     const newText = prompt('Edit task', item);
     if (newText) {
-      // this.todo = this.todo.map(i => i === item ? newText : i);
+      // Add API call here if needed
     }
   }
 }

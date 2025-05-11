@@ -6,27 +6,21 @@
     <mat-tab-group animationDuration="0ms">
       <mat-tab label="Work">
         <app-task-board
-          [tasksByStatus]="
-            groupedTasks['work']
-          "
+          [tasksByStatus]="groupedTasks['work']"
           label="Work Tasks"
           class="block mt-4"
         />
       </mat-tab>
       <mat-tab label="Personal">
         <app-task-board
-          [tasksByStatus]="
-            groupedTasks['personal']
-          "
+          [tasksByStatus]="groupedTasks['personal']"
           label="Personal Tasks"
           class="block mt-4"
         />
       </mat-tab>
       <mat-tab label="Home">
         <app-task-board
-          [tasksByStatus]="
-            groupedTasks['home']
-          "
+          [tasksByStatus]="groupedTasks['home']"
           label="Home Tasks"
           class="block mt-4"
         />
