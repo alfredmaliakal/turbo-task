@@ -1,14 +1,22 @@
 # TurboTask
 Uasage : 
+```
 git clone <your-repo-url>
 cd <repo-folder>
 npm install
+```
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/tutorials/3-angular-monorepo/1a-introduction/1-welcome?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 
 ## Run tasks
 
-To run the dev server for your app, use:
+To run the frontend dev server for your app, use:
+
+```sh
+npx nx serve dashboard
+```
+
+To run the backend dev server for your app, use:
 
 ```sh
 npx nx serve dashboard
